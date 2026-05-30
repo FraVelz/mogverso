@@ -43,10 +43,10 @@ No hace falta variable de entorno adicional en código.
 ## Notas
 
 - No subas `.env.local` al repositorio.
-- Despliega reglas RTDB desde `firebase/database.rules.example.json` (ver `firebase/README.md`). Ajusta antes de producción; la resolución de rondas y el torneo requieren privilegios de admin o backend.
+- Configura **reglas RTDB** en Firebase Console → Realtime Database → Rules (lectura pública, escritura solo en contadores de voto y recibos `*Votes`; bloquea `rankOverrides` y `torneo/state` desde el cliente). Ajusta antes de producción; la resolución de rondas y el torneo requieren privilegios de admin o backend.
 
 ## Firebase rules
 
-1. Copia `firebase/database.rules.example.json` a `database.rules.json` en la raíz del proyecto Firebase (o pégalo en la consola).
-2. Revisa que las rutas coincidan con tu base de datos.
+1. Publica reglas restrictivas en la consola (no dejes la base sin rules).
+2. Revisa que las rutas coincidan con las que usa `src/lib/firebase/client.ts`.
 3. Para votación robusta, planifica Route Handlers en Next.js además de reglas estrictas.

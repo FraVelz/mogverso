@@ -68,7 +68,6 @@ src/
   hooks/         # Ranking, votaciones, torneo
   lib/firebase/  # Cliente Firebase
   lib/looksmax/  # Lógica pura (ranking, tipos)
-firebase/        # Reglas RTDB de ejemplo (ver README)
 public/          # Assets estáticos (SVG, etc.)
 src/assets/      # Imágenes importadas (creadores WebP)
 docs/            # Documentación
@@ -78,5 +77,4 @@ docs/            # Documentación
 
 - [Arquitectura](./docs/arquitectura.md)
 - [Desarrollo](./docs/desarrollo.md)
-- [Despliegue](./docs/despliegue.md)
-- [Firebase (reglas RTDB)](./firebase/README.md)
+- [Despliegue](./docs/despliegue.md) (incluye reglas RTDB en consola Firebase)
