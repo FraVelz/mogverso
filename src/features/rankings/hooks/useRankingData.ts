@@ -17,6 +17,8 @@ import type {
 export function useRankingData() {
   const { fb, ready } = useFirebase();
   const [overrides, setOverrides] = useState<RankOverrides>({});
+  /** Evita mostrar el orden fijo de RANKERS antes del primer snapshot de Firebase. */
+  const [overridesReady, setOverridesReady] = useState(false);
   const [movements, setMovements] = useState<RankMovements>({});
   const [movementsUp, setMovementsUp] = useState<MoverStack>({});
   const [movementsDown, setMovementsDown] = useState<MoverStack>({});
@@ -28,6 +30,7 @@ export function useRankingData() {
 
     const unsubO = onValue(ref(db, "rankOverrides"), (snap) => {
       setOverrides(snap.exists() ? (snap.val() as RankOverrides) : {});
+      setOverridesReady(true);
     });
     const unsubM = onValue(ref(db, "rankMovements"), (snap) => {
       setMovements(snap.exists() ? (snap.val() as RankMovements) : {});
@@ -82,5 +85,14 @@ export function useRankingData() {
     [rankedNames, movements, movementsUp, movementsDown],
   );
 
-  return { ready, entries, upMovers, downMovers, rankVoteEnd, overrides };
+  const rankingReady = ready && (!fb || overridesReady);
+
+  return {
+    ready: rankingReady,
+    entries: rankingReady ? entries : [],
+    upMovers: rankingReady ? upMovers : [],
+    downMovers: rankingReady ? downMovers : [],
+    rankVoteEnd,
+    overrides,
+  };
 }
