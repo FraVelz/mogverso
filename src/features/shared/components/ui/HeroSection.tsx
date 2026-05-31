@@ -40,17 +40,28 @@ export function HeroSection({
       )}
       <h1
         className={cn(
-          "mx-auto w-fit max-w-full max-[360px]:tracking-[0.02em] max-md:tracking-[0.04em]",
+          "mx-auto w-fit max-w-full bg-clip-text text-transparent",
+          "max-[360px]:tracking-[0.02em] max-md:tracking-[0.04em]",
           variant === "default" &&
-            "animate-hero-entrance bg-[linear-gradient(135deg,#fff_0%,var(--color-lm-gold2)_40%,var(--color-lm-gold)_70%,var(--color-lm-gold3)_100%)] bg-clip-text font-display text-[clamp(2.4rem,8vw,9rem)] tracking-[4px] text-transparent",
+            cn(
+              "hero-title--default animate-hero-entrance font-display tracking-[4px]",
+              "text-[clamp(2.4rem,8vw,9rem)]",
+            ),
           variant === "torneo" &&
-            "bg-[linear-gradient(135deg,#fff_0%,#ff9f5b_40%,#ff6b35_70%,var(--color-lm-gold)_100%)] bg-clip-text font-display text-[clamp(2.4rem,9vw,8rem)] tracking-[4px] text-transparent",
+            cn(
+              "hero-title--torneo font-display tracking-[4px]",
+              "text-[clamp(2.4rem,9vw,8rem)]",
+            ),
           variant === "rankvote" &&
-            "bg-[linear-gradient(135deg,var(--color-lm-green2),#3bde8f,var(--color-lm-gold))] bg-clip-text font-sans text-[clamp(1.75rem,6vw,3.25rem)] font-bold tracking-tight text-transparent",
+            cn(
+              "hero-title--rankvote font-sans font-bold tracking-tight",
+              "text-[clamp(1.75rem,6vw,3.25rem)]",
+            ),
         )}
       >
         {title}
       </h1>
+
       {subtitle && (
         <div
           className={cn(
@@ -72,7 +83,12 @@ export function HeroSection({
 
 export function HeroBadge({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-1 rounded-full border border-lm-border2 bg-[rgba(232,184,75,0.08)] px-3 py-1.5 text-sm font-bold text-lm-gold">
+    <div
+      className={cn(
+        "flex items-center gap-1 rounded-full border border-lm-border2 px-3 py-1.5",
+        "bg-[rgba(232,184,75,0.08)] text-sm font-bold text-lm-gold",
+      )}
+    >
       {children}
     </div>
   );

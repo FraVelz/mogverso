@@ -1,5 +1,6 @@
 import { creatorImage } from "@/assets/creators";
 import type { CreatorPhoto } from "@/assets/creators";
+import { getRankerPhoto } from "@/features/rankings/data/avatars";
 import type { IconName } from "@/types/icons";
 
 export type EntryCandidate = {
@@ -16,13 +17,13 @@ export const CANDIDATES: EntryCandidate[] = [
     name: "Franbv",
     sub: "Creador · España",
     icon: "drama",
-    photo: creatorImage("franbeuve.webp"),
+    photo: getRankerPhoto("Franbv") ?? creatorImage("franbeuve.webp"),
   },
   {
     id: "nilojeda",
     name: "Nil Ojeda",
     sub: "Creador · España",
     icon: "gem",
-    photo: creatorImage("nilojeda.webp"),
+    photo: getRankerPhoto("Nil Ojeda") ?? creatorImage("nil-ojeda.webp"),
   },
 ];

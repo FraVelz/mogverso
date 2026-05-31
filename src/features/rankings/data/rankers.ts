@@ -1,21 +1,10 @@
-import type { IconName } from "@/types/icons";
+import { buildContestants } from "./contestants";
+import type { Ranker } from "./ranker-types";
 
-export type Ranker = {
-  name: string;
-  title: string;
-  sub: string;
-  score: number;
-  top: string;
-  tags: string[];
-  tagNames: string[];
-  bio: string;
-  movement: string;
-  movIcon: IconName;
-  photoBg: string;
-};
+export type { Ranker };
 
-/** Datos estáticos del ranking — sincronizados con Firebase en tiempo real */
-export const RANKERS: Ranker[] = [
+/** Top 20 original — sincronizados con Firebase en tiempo real */
+const LEGACY_RANKERS: Ranker[] = [
   {
     name: "Kappah",
     title: "El clavicular español",
@@ -272,8 +261,11 @@ export const RANKERS: Ranker[] = [
     tags: ["ptag-humor", "ptag-creator", "ptag-appeal"],
     tagNames: ["Humor", "Creador", "Alta Percepción", "Score: 6.8"],
     bio: "ChiquiIbai ha convertido el humor en su arma de looksmaxing.",
-    movement: "ChiquiIbai en el último puesto del ranking.",
+    movement: "ChiquiIbai mantiene su puesto en el ranking.",
     movIcon: "laugh",
     photoBg: "linear-gradient(135deg,#e74c3c,#c0392b)",
   },
 ];
+
+/** Ranking completo: top 20 + 50 nuevos concursantes (posiciones 21–70). */
+export const RANKERS: Ranker[] = [...LEGACY_RANKERS, ...buildContestants()];

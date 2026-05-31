@@ -45,7 +45,8 @@ export function Avatar({
       width={size}
       height={size}
       sizes={`${size}px`}
-      className={cn("shrink-0 object-cover", radiusClass, className)}
+      className={cn("shrink-0 object-cover select-none", radiusClass, className)}
+      draggable={false}
       onError={() => setFailed(true)}
     />
   );
@@ -57,7 +58,11 @@ export function ProfileAvatar({ name, photoBg }: { name: string; photoBg: string
 
   return (
     <div
-      className="relative flex h-[130px] w-[110px] items-center justify-center overflow-hidden rounded-[14px] border-2 border-lm-border2 bg-lm-card2 max-md:h-[118px] max-md:w-[100px]"
+      className={cn(
+        "relative flex h-[130px] w-[110px] items-center justify-center overflow-hidden",
+        "rounded-[14px] border-2 border-lm-border2 bg-lm-card2",
+        "max-md:h-[118px] max-md:w-[100px]",
+      )}
       style={{ background: photoBg }}
     >
       {src && !failed ? (
@@ -67,7 +72,8 @@ export function ProfileAvatar({ name, photoBg }: { name: string; photoBg: string
           width={110}
           height={130}
           sizes="130px"
-          className="h-full w-full rounded-xl object-cover"
+          className="h-full w-full rounded-xl object-cover select-none"
+          draggable={false}
           onError={() => setFailed(true)}
         />
       ) : (

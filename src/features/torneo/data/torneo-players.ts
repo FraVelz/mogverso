@@ -8,28 +8,33 @@ import type {
   TorneoPlayer,
   TorneoState,
 } from "@/features/shared/lib/types";
+import type { IconName } from "@/types/icons";
+
+function torneoPlayer(name: string, icon: IconName): TorneoPlayer {
+  return {
+    name,
+    photo: getRankerPhoto(name) ?? creatorImage("kappah.webp"),
+    icon,
+  };
+}
 
 export const TORNEO_PLAYERS: TorneoPlayer[] = [
-  { name: "Aaronjaureguii", photo: creatorImage("aaronjaureguii.webp"), icon: "star" },
-  { name: "Peereira7", photo: creatorImage("peereira7.webp"), icon: "goal" },
-  { name: "TitoChape", photo: creatorImage("titochape.webp"), icon: "cookie" },
-  {
-    name: "RubenMaxxing",
-    photo: creatorImage("rubenmaxxing.webp"),
-    icon: "microscope",
-  },
-  { name: "Kappah", photo: creatorImage("kappah.webp"), icon: "crown" },
-  { name: "Sergi", photo: creatorImage("SergiCabrer.webp"), icon: "waves" },
-  { name: "JoseNogales", photo: creatorImage("josenogales.webp"), icon: "leaf" },
-  { name: "Franbv", photo: creatorImage("franbeuve.webp"), icon: "drama" },
-  { name: "Elcalvo", photo: creatorImage("elcalvo.webp"), icon: "brain" },
-  { name: "Febron", photo: creatorImage("febron.webp"), icon: "dumbbell" },
-  { name: "Didac", photo: creatorImage("didac.webp"), icon: "target" },
-  { name: "Giva", photo: creatorImage("giva.webp"), icon: "flame" },
-  { name: "Javichu", photo: creatorImage("javichu.webp"), icon: "zap" },
-  { name: "Ismael", photo: creatorImage("ismael.webp"), icon: "sparkles" },
-  { name: "AlvaroSapo", photo: creatorImage("alvaro.webp"), icon: "turtle" },
-  { name: "Hectrollprox", photo: creatorImage("hectroll.webp"), icon: "ghost" },
+  torneoPlayer("Aaronjaureguii", "star"),
+  torneoPlayer("Peereira7", "goal"),
+  torneoPlayer("TitoChape", "cookie"),
+  torneoPlayer("RubenMaxxing", "microscope"),
+  torneoPlayer("Kappah", "crown"),
+  torneoPlayer("Sergi", "waves"),
+  torneoPlayer("JoseNogales", "leaf"),
+  torneoPlayer("Franbv", "drama"),
+  torneoPlayer("Elcalvo", "brain"),
+  torneoPlayer("Febron", "dumbbell"),
+  torneoPlayer("Didac", "target"),
+  torneoPlayer("Giva", "flame"),
+  torneoPlayer("Javichu", "zap"),
+  torneoPlayer("Ismael", "sparkles"),
+  torneoPlayer("AlvaroSapo", "turtle"),
+  torneoPlayer("Hectrollprox", "ghost"),
 ];
 
 export const OCTAVOS_MATCHES: OctavosMatchDef[] = [
