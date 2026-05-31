@@ -78,29 +78,20 @@ export function ProfilePage({ ranker, rankPosition }: ProfilePageProps) {
             {r.title} · {r.sub}
           </div>
           <div className="mb-3 flex flex-wrap gap-1.5 max-md:justify-center">
-            {r.tagNames.map((t, idx) => {
-              const tagCls =
-                idx === r.tagNames.length - 1
-                  ? "ptag-score"
-                  : r.tags[idx] || "ptag-appeal";
-              return (
+            {r.tagNames
+              .map((t, idx) => ({ label: t, cls: r.tags[idx] || "ptag-appeal" }))
+              .filter(({ label }) => !label.startsWith("Score:"))
+              .map(({ label, cls }) => (
                 <span
-                  key={t}
+                  key={label}
                   className={cn(
                     "rounded-full border px-2 py-0.5 text-sm font-bold tracking-[0.8px]",
-                    tagCls,
+                    cls,
                   )}
                 >
-                  {t}
+                  {label}
                 </span>
-              );
-            })}
-          </div>
-          <div className="flex gap-3 max-md:justify-center">
-            <div className="text-center">
-              <div className="lm-type-score text-2xl text-lm-gold">{r.score}</div>
-              <div className="lm-type-label text-lm-text2">Score</div>
-            </div>
+              ))}
           </div>
         </div>
       </div>

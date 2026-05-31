@@ -41,7 +41,8 @@ export function CreatorImage({
       height={src.height}
       sizes={sizes}
       priority={priority}
-      className={cn(fill && "h-full w-full object-cover", className)}
+      className={cn(fill && "h-full w-full object-cover select-none", className)}
+      draggable={false}
       style={style}
       onError={() => setFailed(true)}
     />

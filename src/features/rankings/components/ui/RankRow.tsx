@@ -13,7 +13,12 @@ type RankRowProps = {
   onOpenProfile: (name: string, rank: number) => void;
 };
 
-const RANK_NUM_CLASS = ["rank-num--1", "rank-num--2", "rank-num--3", "rank-num--rest"] as const;
+const RANK_NUM_CLASS = [
+  "rank-num--1",
+  "rank-num--2",
+  "rank-num--3",
+  "rank-num--rest",
+] as const;
 const TOP_ROW_CLASS = ["rank-row--top1", "rank-row--top2", "rank-row--top3"] as const;
 
 export function RankRow({ entry, index, onOpenProfile }: RankRowProps) {
@@ -85,20 +90,6 @@ export function RankRow({ entry, index, onOpenProfile }: RankRowProps) {
         </div>
         <div className="mt-0.5 truncate text-base leading-snug font-semibold text-lm-text2">
           {ranker.title} · {ranker.sub}
-        </div>
-      </div>
-      <div className="flex shrink-0 items-center gap-2.5">
-        <div className="text-right">
-          <div className="lm-type-score text-xl text-lm-gold">{ranker.score}</div>
-          <div className="lm-type-label text-lm-text2">Score</div>
-        </div>
-        <div
-          className={cn(
-            "text-base text-lm-text2 transition-all duration-200 max-md:hidden",
-            "group-hover:translate-x-1 group-hover:text-lm-gold",
-          )}
-        >
-          ›
         </div>
       </div>
     </Pressable>

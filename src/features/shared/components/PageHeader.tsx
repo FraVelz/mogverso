@@ -31,11 +31,7 @@ export function PageHeader({
             "w-fit max-w-full leading-tight",
             variant === "display"
               ? cn(
-                  "bg-clip-text font-display tracking-[3px] text-transparent",
-                  [
-                    "bg-[linear-gradient(135deg,var(--color-lm-text)_0%,",
-                    "var(--color-lm-gold2)_60%,var(--color-lm-gold)_100%)]",
-                  ].join(""),
+                  "page-header-title--display bg-clip-text font-display tracking-[3px] text-transparent",
                   "text-[clamp(1.6rem,4vw,3.5rem)] max-md:text-[clamp(1.5rem,6vw,2.2rem)]",
                 )
               : "font-sans text-[clamp(1.5rem,2.5vw,2rem)] font-bold tracking-tight text-lm-text lg:text-[2rem]",
