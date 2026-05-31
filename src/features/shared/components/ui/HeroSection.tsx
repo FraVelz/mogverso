@@ -40,32 +40,28 @@ export function HeroSection({
       )}
       <h1
         className={cn(
-          "mx-auto w-fit max-w-full max-[360px]:tracking-[0.02em] max-md:tracking-[0.04em]",
+          "mx-auto w-fit max-w-full bg-clip-text text-transparent",
+          "max-[360px]:tracking-[0.02em] max-md:tracking-[0.04em]",
           variant === "default" &&
             cn(
-              "animate-hero-entrance bg-clip-text font-display tracking-[4px] text-transparent",
-              [
-                "bg-[linear-gradient(135deg,#fff_0%,var(--color-lm-gold2)_40%,",
-                "var(--color-lm-gold)_70%,var(--color-lm-gold3)_100%)]",
-              ].join(""),
+              "animate-hero-entrance hero-title--default font-display tracking-[4px]",
               "text-[clamp(2.4rem,8vw,9rem)]",
             ),
           variant === "torneo" &&
             cn(
-              "bg-clip-text font-display tracking-[4px] text-transparent",
-              "bg-[linear-gradient(135deg,#fff_0%,#ff9f5b_40%,#ff6b35_70%,var(--color-lm-gold)_100%)]",
+              "hero-title--torneo font-display tracking-[4px]",
               "text-[clamp(2.4rem,9vw,8rem)]",
             ),
           variant === "rankvote" &&
             cn(
-              "bg-clip-text font-sans font-bold tracking-tight text-transparent",
-              "bg-[linear-gradient(135deg,var(--color-lm-green2),#3bde8f,var(--color-lm-gold))]",
+              "hero-title--rankvote font-sans font-bold tracking-tight",
               "text-[clamp(1.75rem,6vw,3.25rem)]",
             ),
         )}
       >
         {title}
       </h1>
+
       {subtitle && (
         <div
           className={cn(

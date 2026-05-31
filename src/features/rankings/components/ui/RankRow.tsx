@@ -87,20 +87,6 @@ export function RankRow({ entry, index, onOpenProfile }: RankRowProps) {
           {ranker.title} · {ranker.sub}
         </div>
       </div>
-      <div className="flex shrink-0 items-center gap-2.5">
-        <div className="text-right">
-          <div className="lm-type-score text-xl text-lm-gold">{ranker.score}</div>
-          <div className="lm-type-label text-lm-text2">Score</div>
-        </div>
-        <div
-          className={cn(
-            "text-base text-lm-text2 transition-all duration-200 max-md:hidden",
-            "group-hover:translate-x-1 group-hover:text-lm-gold",
-          )}
-        >
-          ›
-        </div>
-      </div>
     </Pressable>
   );
 }

@@ -1,5 +1,52 @@
 /* Variantes semánticas — editar aquí; en JSX solo clases base + modificador */
 
+/* ── Hero: títulos con gradiente ── */
+.hero-title--default,
+.hero-title--torneo,
+.hero-title--rankvote,
+.page-header-title--display {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero-title--default {
+  background-image: linear-gradient(
+    135deg,
+    #fff 0%,
+    var(--color-lm-gold2) 40%,
+    var(--color-lm-gold) 70%,
+    var(--color-lm-gold3) 100%
+  );
+}
+
+.hero-title--torneo {
+  background-image: linear-gradient(
+    135deg,
+    #fff 0%,
+    #ff9f5b 40%,
+    #ff6b35 70%,
+    var(--color-lm-gold) 100%
+  );
+}
+
+.hero-title--rankvote {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-lm-green2),
+    #3bde8f,
+    var(--color-lm-gold)
+  );
+}
+
+.page-header-title--display {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-lm-text) 0%,
+    var(--color-lm-gold2) 60%,
+    var(--color-lm-gold) 100%
+  );
+}
+
 /* ── Perfil: tags de ranker ── */
 .ptag-chad {
   color: #ffd166;

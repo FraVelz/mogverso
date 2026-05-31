@@ -45,7 +45,8 @@ export function Avatar({
       width={size}
       height={size}
       sizes={`${size}px`}
-      className={cn("shrink-0 object-cover", radiusClass, className)}
+      className={cn("shrink-0 object-cover select-none", radiusClass, className)}
+      draggable={false}
       onError={() => setFailed(true)}
     />
   );
@@ -71,7 +72,8 @@ export function ProfileAvatar({ name, photoBg }: { name: string; photoBg: string
           width={110}
           height={130}
           sizes="130px"
-          className="h-full w-full rounded-xl object-cover"
+          className="h-full w-full rounded-xl object-cover select-none"
+          draggable={false}
           onError={() => setFailed(true)}
         />
       ) : (
